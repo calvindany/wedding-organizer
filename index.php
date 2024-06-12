@@ -28,9 +28,8 @@ switch ($REQUEST_URI) {
         $conn->close();
 
         break;
-    case '/admin/':
+    case '/admin':
         if($REQUEST_METHOD === 'GET') {
-
             require __DIR__ . $VIEWDIRADMIN . 'Index.php';
         }
         break;

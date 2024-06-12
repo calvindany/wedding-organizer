@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    background-color: #F8F7F9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navigation {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.custom-toggler {
+    background-color: #F8F7F9;
+    border-color: #F8F7F9;
+}
+
+.footer{
+    background-color: #091540;
+    padding: 30px;
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .navigation{
+        margin-top: 0px;
+    }
+}

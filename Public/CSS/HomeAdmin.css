@@ -1,0 +1,48 @@
+.container .table-responsive{
+    overflow-x: auto;
+}
+
+.container .table-responsive .table {
+    width: 250%;
+    border-collapse: collapse;
+}
+
+td {
+    height: 60px;
+    vertical-align: middle;
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.button-container {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.button-container form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-block-end: 0;
+}
+
+/* Large devices (desktops, 768px and up) */
+@media (min-width: 768px) { 
+    .container .table-responsive .table {
+        width: 150%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .container .table-responsive .table {
+        width: 100%;
+    }
+}
