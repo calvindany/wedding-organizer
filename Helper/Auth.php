@@ -32,13 +32,12 @@
         }
     }
 
-    function logout() {
-        include "Config.php";
+    function logout($BASE_URL) {
         $_SESSION = array();
-    
+        
         session_destroy();
     
-        header("Location: ". $base_url . "Admin/Login.php");
+        header("Location: ". $BASE_URL . "admin/login");
         exit();
     }
 

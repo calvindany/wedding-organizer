@@ -25,7 +25,7 @@
                 echo '<a class="nav-link active text-white" aria-current="page" href="'. $BASE_URL . '#">Profil</a>';
                 echo '</li>';
                 echo '<li class="nav-item">';
-                echo '<form method="POST" action="' . $BASE_URL . 'Logic/Logout.php' .'"><button class="btn btn-danger" type="submit">Log Out</button></form>';
+                echo '<form method="POST" action="' . $BASE_URL . 'admin/logout' .'"><button class="btn btn-danger" type="submit">Log Out</button></form>';
                 echo '</li>';
                 echo '</ul>';
                 echo '</div>';

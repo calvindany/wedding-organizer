@@ -45,6 +45,10 @@ switch ($REQUEST_URI) {
             $conn->close();
         }
         break;
+    case '/admin/logout':
+        if($REQUEST_METHOD == "POST") {
+            require __DIR__ . $VIEWDIRADMIN . 'Logic/Logout.php';
+        }
     default:
         echo "NotFound";
         break;
