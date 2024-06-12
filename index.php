@@ -16,6 +16,17 @@ if (strpos($REQUEST_URI, $BASEROUTE) === 0) {
 // echo $REQUEST_URI;
 
 switch ($REQUEST_URI) {
+    case '/test':
+        
+        include "Helper/Connection.php";
+
+        if($REQUEST_METHOD == "GET") {
+            require __DIR__ . '/app/Test.php';
+        }
+
+        $conn->close();
+
+        break;
     case '/admin/':
         if($REQUEST_METHOD === 'GET') {
             require __DIR__ . $VIEWDIRADMIN . 'Login.php';

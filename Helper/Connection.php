@@ -3,7 +3,7 @@
     $dbHost = 'localhost';
     $dbUser = 'root';
     $dbPassword = '';
-    $dbName = 'sekolah_tinggi_jewepe';
+    $dbName = 'wedding_organizer';
 
     $conn = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
 
