@@ -1,0 +1,46 @@
+.login-container {
+    /* position: absolute;
+    z-index: -1; */
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+.login-container .content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+}
+
+.login-container .content .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-container .content .form .button-group{
+    display: flex;
+    justify-content: end;
+}
+
+.login-container .content .form .button-group button{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .login-container .content {
+        padding: 10vw;
+    }
+}
+
+
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .login-container .content {
+        padding: 15vw;
+    }
+}
