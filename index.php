@@ -1,6 +1,7 @@
 <?php
 
 include "Config/Constant.php";
+include "Helper/Auth.php";
 
 $REQUEST_URI = $_SERVER['REQUEST_URI'];
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
@@ -17,7 +18,7 @@ if (strpos($REQUEST_URI, $BASEROUTE) === 0) {
 
 switch ($REQUEST_URI) {
     case '/test':
-        
+
         include "Helper/Connection.php";
 
         if($REQUEST_METHOD == "GET") {
@@ -34,11 +35,17 @@ switch ($REQUEST_URI) {
         break;
     case '/admin/login':
         if ($REQUEST_METHOD == "GET") {
+            
             include $HEADER_TEMPLATE_PATH;
             require __DIR__ . $VIEWDIRADMIN . 'Login.php';
             include $FOOTER_TEMPLATE_PATH;   
+
         } else if ($REQUEST_METHOD == "POST") {
+            include "Helper/Connection.php";
+            
             require __DIR__ . $VIEWDIRADMIN . 'Logic/PostLogin.php';
+
+            $conn->close();
         }
         break;
     default:

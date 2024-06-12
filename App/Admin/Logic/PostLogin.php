@@ -1,10 +1,8 @@
-<?php
-    session_start();
-    
+<?php    
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if ($username =="admin" && $password == "admin") {
+    if (authenticate($username, $password, $conn)) {
         $_SESSION['username'] = $username;
 
         echo "<script>";

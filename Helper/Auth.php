@@ -3,10 +3,9 @@
         session_start();
     }
     
-    function authenticate($username, $password) {
-        include "Config.php";
-        include_once("../Util/Connection.php");
-        $query = "SELECT password_admin FROM admin WHERE username_admin = '$username'";
+    function authenticate($username, $password, $conn) {
+
+        $query = "SELECT password FROM tb_users WHERE username = '$username'";
 
         $result = $conn->query($query);
 
@@ -17,7 +16,7 @@
                 $data = $row;
             }
 
-            if(password_verify($password, $data['password_admin'])) {
+            if(password_verify($password, $data['password'])) {
                 return true;
             }
         }
