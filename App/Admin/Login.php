@@ -1,8 +1,9 @@
-
+<?php include $HEADER_TEMPLATE_PATH ?>
     <link rel="stylesheet" href=<?php echo $BASE_URL . "Public/CSS/Login.css" ?>>
 </head>
 
 <body>
+    <?php include $NAVBAR_TEMPLATE_PATH ?>
     <div class="login-container">
         <div class="content">
             <p class="display-5">Selamat Datang!</p>
@@ -22,3 +23,5 @@
             </form>
         </div>
     </div>
+
+    <?php include $FOOTER_TEMPLATE_PATH ?>

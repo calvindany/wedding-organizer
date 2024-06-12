@@ -16,6 +16,11 @@ if (strpos($REQUEST_URI, $BASEROUTE) === 0) {
 // echo $REQUEST_URI;
 
 switch ($REQUEST_URI) {
+    case '/admin/':
+        if($REQUEST_METHOD === 'GET') {
+            require __DIR__ . $VIEWDIRADMIN . 'Login.php';
+        }
+        break;
     case '/admin/login':
         if ($REQUEST_METHOD == "GET") {
             include $HEADER_TEMPLATE_PATH;

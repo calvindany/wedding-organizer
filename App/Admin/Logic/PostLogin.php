@@ -9,7 +9,7 @@
 
         echo "<script>";
         echo "alert('Login Berhasil');";
-        echo "window.location.href = '". $BASE_URL . "Admin" ."';";
+        echo "window.location.href = '". $BASE_URL . "admin" ."';";
         echo "</script>";
         exit();
     } else {
