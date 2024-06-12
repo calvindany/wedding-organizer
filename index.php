@@ -30,16 +30,14 @@ switch ($REQUEST_URI) {
         break;
     case '/admin/':
         if($REQUEST_METHOD === 'GET') {
-            require __DIR__ . $VIEWDIRADMIN . 'Login.php';
+
+            require __DIR__ . $VIEWDIRADMIN . 'Index.php';
         }
         break;
-    case '/admin/login':
-        if ($REQUEST_METHOD == "GET") {
-            
-            include $HEADER_TEMPLATE_PATH;
-            require __DIR__ . $VIEWDIRADMIN . 'Login.php';
-            include $FOOTER_TEMPLATE_PATH;   
 
+    case '/admin/login':
+        if ($REQUEST_METHOD == "GET") {            
+            require __DIR__ . $VIEWDIRADMIN . 'Login.php';
         } else if ($REQUEST_METHOD == "POST") {
             include "Helper/Connection.php";
             
