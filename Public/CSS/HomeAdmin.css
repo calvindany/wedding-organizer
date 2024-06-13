@@ -12,6 +12,26 @@ td {
     vertical-align: middle;
 }
 
+.list-card-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+}
+
+.list-card-content {
+    grid-column: span 4;
+}
+
+.card-text.truncate-multiline {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: calc(2em * 4); /* Adjust the height based on the line height */
+    margin-bottom: 1em;
+}
+  
 .home-header {
     display: flex;
     justify-content: space-between;
@@ -19,11 +39,9 @@ td {
 }
 
 .button-container {
-
     display: flex;
     align-items: center;
     gap: 10px;
-
 }
 
 .button-container form {

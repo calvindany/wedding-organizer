@@ -28,9 +28,15 @@ switch ($REQUEST_URI) {
         $conn->close();
 
         break;
+
     case '/admin':
         if($REQUEST_METHOD === 'GET') {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRADMIN . 'Logic/GetCatalogue.php';
             require __DIR__ . $VIEWDIRADMIN . 'Index.php';
+
+            $conn->close();
         }
         break;
 
@@ -45,10 +51,13 @@ switch ($REQUEST_URI) {
             $conn->close();
         }
         break;
+
     case '/admin/logout':
         if($REQUEST_METHOD == "POST") {
             require __DIR__ . $VIEWDIRADMIN . 'Logic/Logout.php';
         }
+        break;
+
     default:
         echo "NotFound";
         break;
