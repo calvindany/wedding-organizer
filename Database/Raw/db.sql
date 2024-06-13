@@ -13,9 +13,10 @@ CREATE TABLE tb_users (
 
 CREATE TABLE tb_catalogues (
  	pk_tb_catalogue INT(4) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    name VARCHAR(100) NOT NULL,
-    username VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    price INT(11) NOT NULL,
     fk_tb_user INT(4) NOT NULL,
     created_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
