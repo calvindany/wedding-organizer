@@ -2,8 +2,11 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if (authenticate($username, $password, $conn)) {
+    $result = authenticate($username, $password, $conn);
+
+    if ($result > 0) {
         $_SESSION['username'] = $username;
+        $_SESSION['pk_tb_user'] = $result; 
 
         echo "<script>";
         echo "alert('Login Berhasil');";

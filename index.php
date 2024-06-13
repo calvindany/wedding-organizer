@@ -39,6 +39,12 @@ switch ($REQUEST_URI) {
             $conn->close();
         }
         break;
+    
+    case '/admin/catalogue/add':
+        if($REQUEST_METHOD === 'GET') {
+            require __DIR__ . $VIEWDIRADMIN . 'Add.php';
+        }
+        break;
 
     case '/admin/login':
         if ($REQUEST_METHOD == "GET") {            

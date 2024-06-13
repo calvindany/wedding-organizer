@@ -6,7 +6,7 @@
     <div class="container my-5">
         <div class="home-header mb-5">
             <h1>Daftar Katalog</h1>
-            <a href="<?php echo $base_url . 'Admin/FormArtikel.php'?>" class="btn btn-outline-primary" >Tambah</a>
+            <a href="<?php echo $BASE_URL . 'admin/catalogue/add'?>" class="btn btn-outline-primary" >Tambah</a>
         </div>
         <div class="list-card-container">
             <?php

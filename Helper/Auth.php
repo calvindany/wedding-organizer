@@ -5,7 +5,7 @@
     
     function authenticate($username, $password, $conn) {
 
-        $query = "SELECT password FROM tb_users WHERE username = '$username'";
+        $query = "SELECT pk_tb_password FROM tb_users WHERE username = '$username'";
 
         $result = $conn->query($query);
 
@@ -17,11 +17,11 @@
             }
 
             if(password_verify($password, $data['password'])) {
-                return true;
+                return $data['pk_tb_user'];
             }
         }
 
-        return false;
+        return 0;
     }
 
     function isUserLoggedIn() {
