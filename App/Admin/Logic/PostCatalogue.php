@@ -22,6 +22,8 @@
             )";
     
         $conn->query($query);
+
+        header("Location: " . $BASE_URL . 'admin');
     } else {
         echo $uploadFileStatus;
     }
