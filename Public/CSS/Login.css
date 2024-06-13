@@ -12,6 +12,7 @@
     flex-direction: column;
     padding: 10px;
     width: 100%;
+    color: #162719;
 }
 
 .login-container .content .form {
