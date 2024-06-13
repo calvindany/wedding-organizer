@@ -26,22 +26,30 @@
             <h1>Tambah Product</h1>
         </div>
         <div class="my-4">
-            <form>
-                <div class="mb-3">
+            <form action="<?php echo $BASE_URL . 'admin/catalogue/add' ?>" method="POST" enctype="multipart/form-data">
+                <div class="mb-4">
                     <label for="product_name" class="form-label">Nama Product</label>
                     <input type="email" class="form-control" id="product_name" name="product_name">
                 </div>
-                <div class="mb-3">
-                    <label for="harga" class="form-label">Harga</label>
-                    <input type="number" class="form-control" id="harga">
+                <div class="mb-4">
+                    <label for="price" class="form-label">Harga</label>
+                    <input type="number" class="form-control" id="price" name="price">
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="image" class="form-label">Gambar</label>
                     <input type="file" accept=".jpg,.png" class="form-control" id="image" name="image">
                 </div>
-                <div class="mb-3 d-flex flex-column">
+                <div class="mb-4">
+                    <label for="form-select" class="form-label">Publish / Draft</label>
+                    <select class="form-select" id="form-select" name="status" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="0">Draft</option>
+                        <option value="1">Publish</option>
+                    </select>
+                </div>
+                <div class="mb-4 d-flex flex-column">
                     <label for="summernote" class="text-lg mb-2">Content</label>
-                    <textarea id="summernote" name="description"></textarea>
+                    <textarea id="summernote" name="description" name="description"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

@@ -5,7 +5,7 @@
     
     function authenticate($username, $password, $conn) {
 
-        $query = "SELECT pk_tb_password FROM tb_users WHERE username = '$username'";
+        $query = "SELECT pk_tb_user, password FROM tb_users WHERE username = '$username'";
 
         $result = $conn->query($query);
 

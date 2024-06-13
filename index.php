@@ -43,7 +43,13 @@ switch ($REQUEST_URI) {
     case '/admin/catalogue/add':
         if($REQUEST_METHOD === 'GET') {
             require __DIR__ . $VIEWDIRADMIN . 'Add.php';
+        } else if ($REQUEST_METHOD === 'POST') {
+            include "Helper/Connection.php";
+            include "Helper/FileHelper.php";
+            
+            require __DIR__ . $VIEWDIRADMIN . 'Logic/PostCatalogue.php';
         }
+
         break;
 
     case '/admin/login':
