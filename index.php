@@ -160,6 +160,29 @@ switch (true) {
         }
 
         break;
+    
+    case $REQUEST_URI == '/admin/profil':
+        isUserLoggedIn();
+
+        if($REQUEST_METHOD == "GET") {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRADMIN . 'Profile/Logic/Profile.php';
+
+            $data = GetProfile($conn);
+
+            require __DIR__ . $VIEWDIRADMIN . 'Profile/Index.php';
+
+            $conn->close();
+        } else if ($REQUEST_METHOD == "POST") {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRADMIN . 'Profile/Logic/PostProfile.php';
+
+            $conn->close();
+        }
+
+        break;
 
     case $REQUEST_URI == '/admin/login':
         if ($REQUEST_METHOD == "GET") {            
