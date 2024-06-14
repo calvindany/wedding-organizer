@@ -143,6 +143,23 @@ switch (true) {
         }
 
         break;
+    
+    case $REQUEST_URI == '/admin/laporan':
+        isUserLoggedIn();
+
+        if($REQUEST_METHOD == "GET") {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRADMIN . 'Report/Logic/Report.php';
+
+            $data = GetReport($conn);
+
+            require __DIR__ . $VIEWDIRADMIN . 'Report/Index.php';
+
+            $conn->close();
+        }
+
+        break;
 
     case $REQUEST_URI == '/admin/login':
         if ($REQUEST_METHOD == "GET") {            

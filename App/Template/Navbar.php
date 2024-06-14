@@ -22,7 +22,7 @@
                 echo '<a class="nav-link active text-white" aria-current="page" href="'. $BASE_URL . 'admin/pesanan">Pesanan</a>';
                 echo '</li>';
                 echo '<li class="nav-item">';
-                echo '<a class="nav-link active text-white" aria-current="page" href="'. $BASE_URL . '#">Profil</a>';
+                echo '<a class="nav-link active text-white" aria-current="page" href="'. $BASE_URL . 'admin/laporan">Laporan</a>';
                 echo '</li>';
                 echo '<li class="nav-item">';
                 echo '<form method="POST" action="' . $BASE_URL . 'admin/logout' .'"><button class="btn btn-danger" type="submit">Log Out</button></form>';
