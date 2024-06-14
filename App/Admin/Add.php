@@ -29,7 +29,7 @@
             <form action="<?php echo $BASE_URL . 'admin/catalogue/add' ?>" method="POST" enctype="multipart/form-data">
                 <div class="mb-4">
                     <label for="product_name" class="form-label">Nama Product</label>
-                    <input type="email" class="form-control" id="product_name" name="product_name">
+                    <input type="text" class="form-control" id="product_name" name="product_name">
                 </div>
                 <div class="mb-4">
                     <label for="price" class="form-label">Harga</label>

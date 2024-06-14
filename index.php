@@ -93,7 +93,7 @@ switch (true) {
         }
         break;
 
-    case '/admin/logout':
+    case $REQUEST_URI == '/admin/logout':
         if($REQUEST_METHOD == "POST") {
             require __DIR__ . $VIEWDIRADMIN . 'Logic/Logout.php';
         }
