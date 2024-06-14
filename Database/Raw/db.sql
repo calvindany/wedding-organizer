@@ -26,7 +26,7 @@ CREATE TABLE tb_catalogues (
 );
 
 CREATE TABLE tb_orders (
- 	pk_tb_order INT(4) NOT NULL,
+ 	pk_tb_order INT(4) PRIMARY KEY NOT NULL,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     phone_number VARCHAR(16) NOT NULL,
