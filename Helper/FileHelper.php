@@ -27,9 +27,9 @@
     
             $new_file_name = uniqid('', true) . "." . $exact_file_type;
     
-            $file_path = "/Public/Uploads/" . $new_file_name;
+            $file_path = "Public/Uploads/" . $new_file_name;
     
-            $save_destination = __DIR__ . "/.." . $file_path;
+            $save_destination = __DIR__ . "/../" . $file_path;
     
             move_uploaded_file($tmp_file_name, $save_destination);
     

@@ -12,7 +12,7 @@
             <?php
                 foreach($data as $row) {
                     echo "<div class='card list-card-content'>";
-                    echo "  <img src='" . $row["image"] ."' class='card-img-top' alt=''>";
+                    echo "  <img src='" . $BASE_URL . $row["image"] ."' class='card-img-top' alt=''>";
                     echo "  <div class='card-body'>";
                     echo "      <h5 class='card-title'>". $row["product_name"] . "</h5>";
                     echo "      <p class='card-text'>IDR " . $row["price"] . "</p>";
