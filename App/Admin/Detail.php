@@ -17,7 +17,8 @@
                 <div>
                     <a href="<?php echo $BASE_URL . 'admin/catalogue/edit/' . $data['pk_tb_catalogue'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i>&nbsp;&nbsp;&nbsp;Edit</a>
                 </div>
-                <form action="">
+                <form action="<?php echo $BASE_URL . 'admin/catalogue/delete' ?>" method="POST">
+                    <input type="hidden" value="<?php echo $data['pk_tb_catalogue'] ?>" name="pk_tb_catalogue" />
                     <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i>&nbsp;&nbsp;&nbsp;Hapus</a>
                 </form>
             </div>

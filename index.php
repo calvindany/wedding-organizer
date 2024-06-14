@@ -105,6 +105,20 @@ switch (true) {
 
         break;
 
+    case $REQUEST_URI == '/admin/catalogue/delete':
+
+        isUserLoggedIn();
+
+        if ($REQUEST_METHOD === 'POST') {
+            include "Helper/Connection.php";
+            
+            require __DIR__ . $VIEWDIRADMIN . 'Logic/DeleteCatalogue.php';
+
+            $conn->close();
+        }
+
+        break;
+
     case $REQUEST_URI == '/admin/login':
         if ($REQUEST_METHOD == "GET") {            
             require __DIR__ . $VIEWDIRADMIN . 'Login.php';
