@@ -35,7 +35,9 @@ switch (true) {
 
             include "Helper/Connection.php";
 
-            require __DIR__ . $VIEWDIRADMIN . 'Logic/GetCatalogue.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Logic/Catalogue.php';
+            $data = GetCatalogue($conn);
+
             require __DIR__ . $VIEWDIRADMIN . 'Index.php';
 
             $conn->close();
@@ -58,11 +60,18 @@ switch (true) {
 
     case preg_match('#^/admin/catalogue/detail/(\d+)$#', $REQUEST_URI, $matches):
         $id = $matches[1];
-
-        isUserLoggedIn();
+        var_dump($id);
+        // isUserLoggedIn();
 
         if($REQUEST_METHOD === 'GET') {
-            require __DIR__ . $VIEWDIRADMIN . 'Detail.php';
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRADMIN . 'Logic/Catalogue.php';
+
+            $data = GetCatalogueById($id, $conn);
+            var_dump($data);
+
+            // require __DIR__ . $VIEWDIRADMIN . 'Detail.php';
         } else if ($REQUEST_METHOD === 'POST') {
             include "Helper/Connection.php";
             include "Helper/FileHelper.php";
