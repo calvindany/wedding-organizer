@@ -1,0 +1,16 @@
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-header div h5 {
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.detail-header .button-group {
+    display: flex;
+    gap: 20px;
+}

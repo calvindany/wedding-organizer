@@ -25,14 +25,13 @@
     
         if ($result->num_rows > 0)  
         { 
-            $data = array();
             while($row = $result->fetch_assoc()) 
             { 
-                $data[] = $row;
+                $data = $row;
             }
         } else { 
-            $data = []; 
-        } 
+            $data = null; 
+        }
 
         return $data;
     }

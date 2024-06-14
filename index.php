@@ -60,8 +60,8 @@ switch (true) {
 
     case preg_match('#^/admin/catalogue/detail/(\d+)$#', $REQUEST_URI, $matches):
         $id = $matches[1];
-        var_dump($id);
-        // isUserLoggedIn();
+        
+        isUserLoggedIn();
 
         if($REQUEST_METHOD === 'GET') {
             include "Helper/Connection.php";
@@ -69,9 +69,9 @@ switch (true) {
             require __DIR__ . $VIEWDIRADMIN . 'Logic/Catalogue.php';
 
             $data = GetCatalogueById($id, $conn);
-            var_dump($data);
 
-            // require __DIR__ . $VIEWDIRADMIN . 'Detail.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Detail.php';
+
         } else if ($REQUEST_METHOD === 'POST') {
             include "Helper/Connection.php";
             include "Helper/FileHelper.php";
