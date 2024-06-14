@@ -22,7 +22,7 @@
                         echo "  <div class='card-body'>";
                         echo "      <h5 class='card-title'>". $row["product_name"] . "</h5>";
                         echo "      <p class='card-text'>IDR " . $row["price"] . "</p>";
-                        echo "      <p class='card-text truncate-multiline'>" . $row["description"] . "</p>";
+                        echo "      <div class='card-text truncate-multiline'>" . $row["description"] . "</div>";
                         echo "      <a href='". $BASE_URL . "admin/catalogue/detail/" . $row["pk_tb_catalogue"] ."' class='btn px-3 btn-primary'>Detail</a>";
                         echo "  </div>";
                         echo "</div>";
