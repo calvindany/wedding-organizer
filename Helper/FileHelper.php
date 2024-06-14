@@ -1,7 +1,7 @@
 <?php
-    include __DIR__ . '/../Config/FileUploadStatus.php';
-
     function InputFile($file) {
+        include __DIR__ . '/../Config/FileUploadStatus.php';
+        
         try {
             $file_name = $file['name'];
             $tmp_file_name = $file['tmp_name'];

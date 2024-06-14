@@ -15,7 +15,7 @@
             </div>
             <div class="button-group">
                 <div>
-                    <a href="" class="btn btn-primary"><i class="bi bi-pencil-square"></i>&nbsp;&nbsp;&nbsp;Edit</a>
+                    <a href="<?php echo $BASE_URL . 'admin/catalogue/edit/' . $data['pk_tb_catalogue'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i>&nbsp;&nbsp;&nbsp;Edit</a>
                 </div>
                 <form action="">
                     <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i>&nbsp;&nbsp;&nbsp;Hapus</a>

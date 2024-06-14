@@ -1,6 +1,7 @@
 <?php
 
 include "Config/Constant.php";
+include "Config/FileUploadStatus.php";
 include "Helper/Auth.php";
 
 $REQUEST_URI = $_SERVER['REQUEST_URI'];
@@ -72,6 +73,29 @@ switch (true) {
 
             require __DIR__ . $VIEWDIRADMIN . 'Detail.php';
 
+        }
+
+        break;
+
+    case preg_match('#^/admin/catalogue/edit/(\d+)$#', $REQUEST_URI, $matches):
+        $id = $matches[1];
+
+        isUserLoggedIn();
+
+        if($REQUEST_METHOD === 'GET') {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRADMIN . 'Logic/Catalogue.php';
+
+            $data = GetCatalogueById($id, $conn);
+
+            require __DIR__ . $VIEWDIRADMIN . 'Add.php';
+
+        } else if ($REQUEST_METHOD === 'POST') {
+            include "Helper/Connection.php";
+            include "Helper/FileHelper.php";
+            
+            require __DIR__ . $VIEWDIRADMIN . 'Logic/PutCatalogue.php';
         }
 
         break;
