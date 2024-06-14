@@ -37,7 +37,7 @@ switch (true) {
 
             include "Helper/Connection.php";
 
-            require __DIR__ . $VIEWDIRADMIN . 'Logic/Catalogue.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Logic/Catalogue.php';
             $data = GetCatalogue($conn);
 
             require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Index.php';
@@ -55,7 +55,7 @@ switch (true) {
             include "Helper/Connection.php";
             include "Helper/FileHelper.php";
             
-            require __DIR__ . $VIEWDIRADMIN . 'Logic/PostCatalogue.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Logic/PostCatalogue.php';
         }
 
         break;
@@ -68,7 +68,7 @@ switch (true) {
         if($REQUEST_METHOD === 'GET') {
             include "Helper/Connection.php";
 
-            require __DIR__ . $VIEWDIRADMIN . 'Logic/Catalogue.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Logic/Catalogue.php';
 
             $data = GetCatalogueById($id, $conn);
 
@@ -87,7 +87,7 @@ switch (true) {
         if($REQUEST_METHOD === 'GET') {
             include "Helper/Connection.php";
 
-            require __DIR__ . $VIEWDIRADMIN . 'Logic/Catalogue.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Logic/Catalogue.php';
 
             $data = GetCatalogueById($id, $conn);
 
@@ -99,7 +99,7 @@ switch (true) {
             include "Helper/Connection.php";
             include "Helper/FileHelper.php";
             
-            require __DIR__ . $VIEWDIRADMIN . 'Logic/PutCatalogue.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Logic/PutCatalogue.php';
 
             $conn->close();
         }
@@ -113,7 +113,7 @@ switch (true) {
         if ($REQUEST_METHOD === 'POST') {
             include "Helper/Connection.php";
             
-            require __DIR__ . $VIEWDIRADMIN . 'Logic/DeleteCatalogue.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Logic/DeleteCatalogue.php';
 
             $conn->close();
         }
@@ -163,12 +163,11 @@ switch (true) {
 
     case $REQUEST_URI == '/admin/login':
         if ($REQUEST_METHOD == "GET") {            
-            require __DIR__ . $VIEWDIRADMIN . 'Login.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Auth/Login.php';
         } else if ($REQUEST_METHOD == "POST") {
-            dd('aa');
             include "Helper/Connection.php";
             
-            require __DIR__ . $VIEWDIRADMIN . 'Logic/PostLogin.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Auth/Logic/PostLogin.php';
 
             $conn->close();
         }
@@ -176,22 +175,11 @@ switch (true) {
 
     case $REQUEST_URI == '/admin/logout':
         if($REQUEST_METHOD == "POST") {
-            require __DIR__ . $VIEWDIRADMIN . 'Logic/Logout.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Auth/Logic/Logout.php';
         }
         break;
 
     default:
         echo "NotFound";
         break;
-    // case '/views/users':
-    //     require __DIR__ . $viewDir . 'users.php';
-    //     break;
-
-    // case '/contact':
-    //     require __DIR__ . $viewDir . 'contact.php';
-    //     break;
-
-    // default:
-    //     http_response_code(404);
-    //     require __DIR__ . $viewDir . '404.php';
 }
