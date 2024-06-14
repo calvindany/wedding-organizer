@@ -16,8 +16,8 @@ if (strpos($REQUEST_URI, $BASEROUTE) === 0) {
 
 // echo $REQUEST_URI;
 
-switch ($REQUEST_URI) {
-    case '/test':
+switch (true) {
+    case $REQUEST_URI == '/test':
 
         include "Helper/Connection.php";
 
@@ -29,7 +29,7 @@ switch ($REQUEST_URI) {
 
         break;
 
-    case '/admin':
+    case $REQUEST_URI == '/admin':
         isUserLoggedIn();
         if($REQUEST_METHOD === 'GET') {
 
@@ -42,7 +42,7 @@ switch ($REQUEST_URI) {
         }
         break;
     
-    case '/admin/catalogue/add':
+    case $REQUEST_URI == '/admin/catalogue/add':
         isUserLoggedIn();
 
         if($REQUEST_METHOD === 'GET') {
@@ -56,7 +56,23 @@ switch ($REQUEST_URI) {
 
         break;
 
-    case '/admin/login':
+    case preg_match('#^/admin/catalogue/detail/(\d+)$#', $REQUEST_URI, $matches):
+        $id = $matches[1];
+
+        isUserLoggedIn();
+
+        if($REQUEST_METHOD === 'GET') {
+            require __DIR__ . $VIEWDIRADMIN . 'Detail.php';
+        } else if ($REQUEST_METHOD === 'POST') {
+            include "Helper/Connection.php";
+            include "Helper/FileHelper.php";
+            
+            require __DIR__ . $VIEWDIRADMIN . 'Logic/PostCatalogue.php';
+        }
+
+        break;
+
+    case $REQUEST_URI == '/admin/login':
         if ($REQUEST_METHOD == "GET") {            
             require __DIR__ . $VIEWDIRADMIN . 'Login.php';
         } else if ($REQUEST_METHOD == "POST") {
