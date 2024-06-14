@@ -35,6 +35,9 @@ CREATE TABLE tb_orders (
     updated_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+ALTER TABLE `tb_orders` ADD `fk_tb_catalogue` INT(4) NOT NULL AFTER `phone_number`;
+ALTER TABLE `tb_orders` ADD CONSTRAINT `tb_orders_ibfk_1` FOREIGN KEY (`fk_tb_catalogue`) REFERENCES `tb_catalogues`(`pk_tb_catalogue`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
 CREATE TABLE tb_settings (
 	pk_tb_setting INT(4) PRIMARY KEY AUTO_INCREMENT NOT NULL,
     setting_name VARCHAR(100) NOT NULL,
