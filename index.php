@@ -73,6 +73,7 @@ switch (true) {
 
             require __DIR__ . $VIEWDIRADMIN . 'Detail.php';
 
+            $conn->close();
         }
 
         break;
@@ -90,12 +91,16 @@ switch (true) {
             $data = GetCatalogueById($id, $conn);
 
             require __DIR__ . $VIEWDIRADMIN . 'Add.php';
+            
+            $conn->close();
 
         } else if ($REQUEST_METHOD === 'POST') {
             include "Helper/Connection.php";
             include "Helper/FileHelper.php";
             
             require __DIR__ . $VIEWDIRADMIN . 'Logic/PutCatalogue.php';
+
+            $conn->close();
         }
 
         break;
