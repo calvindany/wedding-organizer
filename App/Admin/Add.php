@@ -18,6 +18,14 @@
         });
     </script>
     <!-- !Added Summernote Plugins -->
+
+    <style>
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        display: none;
+      }
+    </style>
+    
 </head>
 <body>
     <?php 
