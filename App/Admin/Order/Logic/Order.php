@@ -7,7 +7,7 @@
             phone_number,
             wedding_date,
             status
-        FROM tb_orders";
+        FROM tb_orders ORDER BY created_date DESC";
 
 
         $stmt = $conn->prepare($query);
