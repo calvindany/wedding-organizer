@@ -72,11 +72,6 @@ switch (true) {
 
             require __DIR__ . $VIEWDIRADMIN . 'Detail.php';
 
-        } else if ($REQUEST_METHOD === 'POST') {
-            include "Helper/Connection.php";
-            include "Helper/FileHelper.php";
-            
-            require __DIR__ . $VIEWDIRADMIN . 'Logic/PostCatalogue.php';
         }
 
         break;
