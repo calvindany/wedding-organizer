@@ -16,7 +16,7 @@
                 echo '<div class="collapse navbar-collapse " id="navbarNav">';
                 echo '<ul class="navbar-nav ms-auto navigation">';
                 echo '<li class="nav-item">';
-                echo '<a class="nav-link active" style="color: #f2E8CF" aria-current="page" href="'. $BASE_URL . '/admin">Katalog</a>';
+                echo '<a class="nav-link active" style="color: #f2E8CF" aria-current="page" href="'. $BASE_URL . 'admin">Katalog</a>';
                 echo '</li>';
                 echo '<li class="nav-item">';
                 echo '<a class="nav-link active text-white" aria-current="page" href="'. $BASE_URL . '#">Pesanan</a>';
