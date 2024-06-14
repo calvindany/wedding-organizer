@@ -4,8 +4,8 @@
 
     $name = $_POST['name'];
     $username = $_POST['username'];
-    $newpassword = isset($_POST['new-password']) ? $_POST['new-password'] : '';
     $oldpassword = isset($_POST['old-password']) ? $_POST['old-password'] : '';
+    $newpassword = isset($_POST['new-password']) ? $_POST['new-password'] : '';
     
     $query = "UPDATE tb_users 
         SET
@@ -17,26 +17,26 @@
         SET
             name = ?, 
             username = ?, 
-            password = ?,
+            password = ?
         WHERE pk_tb_user = ?";
 
     $stmt = null;
 
-    if(empty($password)) {
-        if(authenticate($username, $password, $conn) <= 0) {
-            echo "Username dan Password Salah";
-            header("Location: " . $BASE_URL . "admin/profil");
-        } 
-
+    if(empty($newpassword)) {
         $stmt = $conn->prepare($query);
     
         $stmt->bind_param("ssi", $name, $username, $id);
 
     } else {
+        if(authenticate($username, $oldpassword, $conn) <= 0) {
+            echo "Username dan Password Salah";
+            header("Location: " . $BASE_URL . "admin/profiasl");
+            exit();
+        } 
 
         $stmt = $conn->prepare($queryWithPassword);
     
-        $stmt->bind_param("sssi", $name, $username, password_hash($password, PASSWORD_DEFAULT), $id);
+        $stmt->bind_param("sssi", $name, $username, password_hash($newpassword, PASSWORD_DEFAULT), $id);
     }
 
     if (!$stmt) {
