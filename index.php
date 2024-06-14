@@ -131,10 +131,15 @@ switch (true) {
             $data = GetOrder($conn);
 
             require __DIR__ . $VIEWDIRADMIN . 'Order/Index.php';
+
+            $conn->close();
+            
         } else if ($REQUEST_METHOD == "POST") {
             include "Helper/Connection.php";
 
             require __DIR__ . $VIEWDIRADMIN . 'Order/Logic/UpdateStatus.php';
+
+            $conn->close();
         }
 
         break;

@@ -19,7 +19,6 @@
             $newStatus = "";
     }
 
-    var_dump($newStatus);
     $query = "UPDATE tb_orders SET status = ? WHERE pk_tb_order = ?";
 
     $stmt = $conn->prepare($query);
