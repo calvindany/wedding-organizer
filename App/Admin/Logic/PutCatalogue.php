@@ -28,6 +28,8 @@
         $stmt->bind_param('ssiii', $product_name, $description, $price, $isPublish, $pk_tb_catalogue);
         $stmt->execute();
 
+        $stmt->close();
+
         header("Location: " . $BASE_URL . 'admin');
         exit();
     }
@@ -46,6 +48,8 @@
         $stmt = $conn->prepare($query);
         $stmt->bind_param('sssiii', $product_name, $description, $uploadFileStatus, $price, $isPublish, $pk_tb_catalogue);
         $stmt->execute();
+
+        $stmt->close();
 
         header("Location: " . $BASE_URL . 'admin');
         exit();
