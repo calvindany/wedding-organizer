@@ -25,9 +25,8 @@
     }
 
     function isUserLoggedIn() {
-        include "Config.php";
         if (!isset($_SESSION['username'])) {
-            header("Location: ". $base_url . "Admin/Login.php");
+            header("Location: ". $BASE_URL . "admin/login");
             exit();
         }
     }

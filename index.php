@@ -30,7 +30,9 @@ switch ($REQUEST_URI) {
         break;
 
     case '/admin':
+        isUserLoggedIn();
         if($REQUEST_METHOD === 'GET') {
+
             include "Helper/Connection.php";
 
             require __DIR__ . $VIEWDIRADMIN . 'Logic/GetCatalogue.php';
@@ -41,6 +43,8 @@ switch ($REQUEST_URI) {
         break;
     
     case '/admin/catalogue/add':
+        isUserLoggedIn();
+
         if($REQUEST_METHOD === 'GET') {
             require __DIR__ . $VIEWDIRADMIN . 'Add.php';
         } else if ($REQUEST_METHOD === 'POST') {
