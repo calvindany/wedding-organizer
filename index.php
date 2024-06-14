@@ -39,7 +39,7 @@ switch (true) {
             require __DIR__ . $VIEWDIRADMIN . 'Logic/Catalogue.php';
             $data = GetCatalogue($conn);
 
-            require __DIR__ . $VIEWDIRADMIN . 'Index.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Index.php';
 
             $conn->close();
         }
@@ -49,7 +49,7 @@ switch (true) {
         isUserLoggedIn();
 
         if($REQUEST_METHOD === 'GET') {
-            require __DIR__ . $VIEWDIRADMIN . 'Add.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Add.php';
         } else if ($REQUEST_METHOD === 'POST') {
             include "Helper/Connection.php";
             include "Helper/FileHelper.php";
@@ -71,7 +71,7 @@ switch (true) {
 
             $data = GetCatalogueById($id, $conn);
 
-            require __DIR__ . $VIEWDIRADMIN . 'Detail.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Detail.php';
 
             $conn->close();
         }
@@ -90,7 +90,7 @@ switch (true) {
 
             $data = GetCatalogueById($id, $conn);
 
-            require __DIR__ . $VIEWDIRADMIN . 'Add.php';
+            require __DIR__ . $VIEWDIRADMIN . 'Catalogue/Add.php';
             
             $conn->close();
 

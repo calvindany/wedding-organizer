@@ -12,18 +12,16 @@
     if(is_string($uploadFileStatus)) {
         $query = "INSERT INTO tb_catalogues (
                 product_name, description, image, price, is_published, fk_tb_user
-            ) VALUES (
-                '$product_name',
-                '$description',
-                '$uploadFileStatus',
-                '$price',
-                '$isPublish',
-                '$fk_tb_user'
-            )";
+            ) VALUES ( ?, ?, ?, ?, ?, ? )";
     
-        $conn->query($query);
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('sssiii', $product_name, $description, $uploadFileStatus, $price, $isPublish, $fk_tb_user);
+        $stmt->execute();
+
+        $stmt->close();
 
         header("Location: " . $BASE_URL . 'admin');
+        exit();
     } else {
         echo $uploadFileStatus;
     }
