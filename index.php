@@ -2,6 +2,7 @@
 
 include "Config/Constant.php";
 include "Config/FileUploadStatus.php";
+include "Config/OrderStatus.php";
 include "Helper/Auth.php";
 
 $REQUEST_URI = $_SERVER['REQUEST_URI'];
@@ -118,11 +119,31 @@ switch (true) {
         }
 
         break;
+    
+    case $REQUEST_URI == '/admin/pesanan':
+        isUserLoggedIn();
+
+        if($REQUEST_METHOD == "GET") {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRADMIN . 'Order/Logic/Order.php';
+
+            $data = GetOrder($conn);
+
+            require __DIR__ . $VIEWDIRADMIN . 'Order/Index.php';
+        } else if ($REQUEST_METHOD == "POST") {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRADMIN . 'Order/Logic/UpdateStatus.php';
+        }
+
+        break;
 
     case $REQUEST_URI == '/admin/login':
         if ($REQUEST_METHOD == "GET") {            
             require __DIR__ . $VIEWDIRADMIN . 'Login.php';
         } else if ($REQUEST_METHOD == "POST") {
+            dd('aa');
             include "Helper/Connection.php";
             
             require __DIR__ . $VIEWDIRADMIN . 'Logic/PostLogin.php';
