@@ -53,13 +53,40 @@
                         <input type="hidden" name="pk_tb_catalogue" value="<?php echo $data['pk_tb_catalogue'] ?>">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Kirim Pesanan</button>
                     </div>
 
                 </form>
             </div>
         </div>
     </div>
+
+    <?php if($_SESSION['flash-data-success'] == true) { ?>
+        <!-- Modal -->
+        <div class="modal fade" id="succcess-order-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Order ID: <?php echo $_SESSION['flash-data-order_id']; unset($_SESSION['flash-data-order_id']) ?></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Pesanan Anda akan diproses dalam 1 hari kerja. Kami akan menghubungi Anda melalui nomor telepon atau email anda untuk tahap berikutnya. 
+                        Untuk pengecekan status dapat di lihat pada halaman berikut.
+                        <br><br>
+                        Tolong simpan url halaman berikut ini.<br>
+                        <?php echo $_SESSION['flash-data-order_url']; unset($_SESSION['flash-data-order_url']); ?>
+                        <br><br>
+                        Jika mengalami kehilangan url dapat menghubungi admin
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php unset($_SESSION['flash-data-success']); ?>
+    <?php  } ?>
 
     <script>
         // Get today's date
@@ -81,4 +108,15 @@
 
     </script>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modalIsExist = document.getElementById('succcess-order-modal');
+
+            if(modalIsExist) {
+                var orderModal = new bootstrap.Modal(modalIsExist);
+                orderModal.show();
+            }
+        });
+    </script>
+
     <?php include $FOOTER_TEMPLATE_PATH ?>
