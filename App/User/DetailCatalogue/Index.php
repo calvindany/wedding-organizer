@@ -2,7 +2,7 @@
     <link rel="stylesheet" href=<?php echo $BASE_URL . "Public/CSS/DetailAdmin.css" ?>>
 </head>
 <boby>
-    <?php include $NAVBAR_TEMPLATE_PATH ?>
+    <?php include $USER_NAVBAR_TEMPLATE_PATH ?>
 
     <div class="container my-5">
         <div class="image-header w-100 mb-5">
