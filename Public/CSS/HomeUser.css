@@ -1,0 +1,77 @@
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Use vh for relative height to viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Text color */
+    text-align: center; /* Center align text */
+    overflow: hidden;
+}
+.hero-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("http://localhost/wedding-organizer/Public/Image/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px); /* Blur effect */
+    z-index: 1;
+}
+.hero-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    z-index: 2;
+}
+.hero-image .content {
+    position: relative;
+    z-index: 3;
+}
+
+.list-card-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+}
+
+.list-card-content {
+    grid-column: span 4;
+}
+
+.card-text.truncate-multiline {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: calc(2em * 4); /* Adjust the height based on the line height */
+    margin-bottom: 1em;
+}
+  
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.button-container form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-block-end: 0;
+}
