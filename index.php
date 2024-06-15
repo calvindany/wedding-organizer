@@ -52,6 +52,17 @@ switch (true) {
 
         break;
 
+    case $REQUEST_URI == '/order':
+
+        if ($REQUEST_METHOD === 'POST') {
+            include "Helper/Connection.php";
+            include "Helper/FileHelper.php";
+            
+            require __DIR__ . $VIEWDIRUSER . 'DetailCatalogue/Logic/Order.php';
+        }
+
+        break;
+
     case $REQUEST_URI == '/test':
 
         include "Helper/Connection.php";
