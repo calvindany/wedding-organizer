@@ -184,9 +184,72 @@ switch (true) {
 
         break;
 
+    case $REQUEST_URI == "/admin/pengaturan":
+
+        if($REQUEST_METHOD == "GET") {
+            include "Helper/Connection.php";
+            require __DIR__ . $VIEWDIRADMIN . 'WebSettings/Logic/WebSettings.php';
+            
+            $data = GetWebSettings($conn);
+            
+            require __DIR__ . $VIEWDIRADMIN . 'WebSettings/Index.php';
+
+            $conn->close();
+
+            break;
+        }
+    
+    case $REQUEST_URI == "/admin/pengaturan/add":
+
+        if($REQUEST_METHOD == "GET") {
+            require __DIR__ . $VIEWDIRADMIN . 'WebSettings/Add.php';
+
+        } else if ($REQUEST_METHOD == "POST") {
+            include "Helper/Connection.php";
+            require __DIR__ . $VIEWDIRADMIN . 'WebSettings/Logic/AddWebSettings.php';
+
+            $conn->close();
+        }
+
+        break;
+
+    case preg_match('#^/admin/pengaturan/edit/(\d+)$#', $REQUEST_URI, $matches):
+        $id = $matches[1];
+
+        if($REQUEST_METHOD == "GET") {
+            include "Helper/Connection.php";
+            require __DIR__ . $VIEWDIRADMIN . 'WebSettings/Logic/WebSettings.php';
+
+            $data = GetWebSettingsById($id, $conn);
+
+            require __DIR__ . $VIEWDIRADMIN . 'WebSettings/Add.php';
+
+            $conn->close();
+        } else if ($REQUEST_METHOD == "POST") {
+            include "Helper/Connection.php";
+            require __DIR__ . $VIEWDIRADMIN . 'WebSettings/Logic/PutWebSettings.php';
+
+            $conn->close();
+        }
+
+        break;
+    
+    case $REQUEST_URI == "/admin/pengaturan/delete":
+
+        if ($REQUEST_METHOD == "POST") {
+            include "Helper/Connection.php";
+            require __DIR__ . $VIEWDIRADMIN . 'WebSettings/Logic/DeleteWebSettings.php';
+
+            $conn->close();
+        }
+
+        break;
+
+
     case $REQUEST_URI == '/admin/login':
         if ($REQUEST_METHOD == "GET") {            
             require __DIR__ . $VIEWDIRADMIN . 'Auth/Login.php';
+            break;
         } else if ($REQUEST_METHOD == "POST") {
             include "Helper/Connection.php";
             
