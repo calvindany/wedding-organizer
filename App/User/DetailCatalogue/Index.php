@@ -1,5 +1,6 @@
     <?php include $HEADER_TEMPLATE_PATH ?>
     <link rel="stylesheet" href=<?php echo $BASE_URL . "Public/CSS/DetailAdmin.css" ?>>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
 </head>
 <boby>
     <?php include $USER_NAVBAR_TEMPLATE_PATH ?>
@@ -71,13 +72,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Pesanan Anda akan diproses dalam 1 hari kerja. Kami akan menghubungi Anda melalui nomor telepon atau email anda untuk tahap berikutnya. 
-                        Untuk pengecekan status dapat di lihat pada halaman berikut.
-                        <br><br>
-                        Tolong simpan url halaman berikut ini.<br>
-                        <?php echo $_SESSION['flash-data-order_url']; unset($_SESSION['flash-data-order_url']); ?>
-                        <br><br>
-                        Jika mengalami kehilangan url dapat menghubungi admin
+                        <div>
+                            Pesanan Anda akan diproses dalam 1 hari kerja. Kami akan menghubungi Anda melalui nomor telepon atau email anda untuk tahap berikutnya. 
+                            Untuk pengecekan status dapat di lihat pada halaman berikut.
+                        </div>
+                        <div>
+                            Tolong simpan url halaman berikut ini.<br>
+                            <span id="url"><?php echo $_SESSION['flash-data-order_url']; unset($_SESSION['flash-data-order_url']); ?></span>
+                            <a class="btn-copy btn" style="color:blue; cursor:pointer" data-clipboard-target="#url"><i class="bi bi-copy"></i></a>
+                        </div>
+                        <div>
+                            Jika mengalami kehilangan url dapat menghubungi admin
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
@@ -116,6 +122,22 @@
                 var orderModal = new bootstrap.Modal(modalIsExist);
                 orderModal.show();
             }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var clipboard = new ClipboardJS('.btn-copy');
+
+            clipboard.on('success', function(e) {
+                console.log(e);
+                alert('Url copied to clipboard.');
+            });
+
+            clipboard.on('error', function(e) {
+                console.error(e);
+                alert('Failed to copy url.');
+            });
         });
     </script>
 
