@@ -35,6 +35,23 @@ switch (true) {
 
         break;
 
+    case preg_match('#^/catalogue/detail/(\d+)$#', $REQUEST_URI, $matches):
+        $id = $matches[1];
+
+        if($REQUEST_METHOD === 'GET') {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRUSER . 'DetailCatalogue/Logic/Catalogue.php';
+
+            $data = GetCatalogueById($id, $conn);
+
+            require __DIR__ . $VIEWDIRUSER . 'DetailCatalogue/Index.php';
+
+            $conn->close();
+        }
+
+        break;
+
     case $REQUEST_URI == '/test':
 
         include "Helper/Connection.php";

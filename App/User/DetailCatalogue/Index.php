@@ -1,0 +1,64 @@
+    <?php include $HEADER_TEMPLATE_PATH ?>
+    <link rel="stylesheet" href=<?php echo $BASE_URL . "Public/CSS/DetailAdmin.css" ?>>
+</head>
+<boby>
+    <?php include $NAVBAR_TEMPLATE_PATH ?>
+
+    <div class="container my-5">
+        <div class="image-header w-100 mb-5">
+            <img class="w-100" src="<?php echo $BASE_URL . $data['image'] ?>" alt="">
+        </div>
+        <div class="detail-header mb-5">
+            <div>
+                <h1>Detail: <?php echo $data['product_name'] ?></h1>
+                <h5 class="bg-warning"><i class="bi bi-tags"></i>&nbsp;&nbsp;IDR <?php echo $data['price'] ?></h5>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-success px-4 py-2" data-bs-toggle="modal" data-bs-target="#order-modal">
+                    <i class="bi bi-bag"></i>&nbsp;&nbsp;&nbsp;Pesan
+                </button>
+            </div>
+        </div>
+        <div>
+            <?php echo $data['description'] ?>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="order-modal" tabindex="-1" aria-labelledby="order-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Pesan: <?php echo $data['product_name'] ?></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nomor Telepon</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Wedding Date</label>
+                        <input type="date" class="form-control" id="name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    </div>
+    
+    <?php include $FOOTER_TEMPLATE_PATH ?>
