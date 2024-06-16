@@ -15,7 +15,7 @@
                 <h5 class="bg-warning"><i class="bi bi-tags"></i>&nbsp;&nbsp;IDR <?php echo $data['price'] ?></h5>
             </div>
             <div class="button-group">
-                <button class="btn btn-success px-4 py-2" data-bs-toggle="modal" data-bs-target="#order-modal">
+                <button class="btn btn-success px-2 py-1 px-md-4 py-md-2" data-bs-toggle="modal" data-bs-target="#order-modal">
                     <i class="bi bi-bag"></i>&nbsp;&nbsp;&nbsp;Pesan
                 </button>
             </div>
@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <?php if($_SESSION['flash-data-success'] == true) { ?>
+    <?php if(isset($_SESSION['flash-data-success']) == true) { ?>
         <!-- Modal -->
         <div class="modal fade" id="succcess-order-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -93,6 +93,8 @@
         </div>
         <?php unset($_SESSION['flash-data-success']); ?>
     <?php  } ?>
+
+    <?php include $USER_FOOTER_TEMPLATE_PATH ?>
 
     <script>
         // Get today's date
