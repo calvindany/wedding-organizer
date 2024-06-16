@@ -26,8 +26,8 @@
                             echo "  <tr>";
                             echo "      <td>" . $row['pk_tb_setting'] . "</td>";
                             echo "      <td>" . $row['setting_name'] . "</td>";
-                            echo "      <td>" . $row['setting_value'] . "</td>";
-                            echo "      <td>" . $row['description'] . "</td>";
+                            echo "      <td class='table-truncate-multiline'>" . htmlspecialchars($row['setting_value']) . "</td>";
+                            echo "      <td class='table-truncate-multiline'>" . $row['description'] . "</td>";
                             echo "      <td class='d-flex align-items-center gap-4'>";
                             echo "          <a class='btn btn-primary' href='" . $BASE_URL . "admin/pengaturan/edit/" . $row["pk_tb_setting"] . "'>";
                             echo "              <i class='bi bi-pencil-square'></i>&nbsp;&nbsp;&nbsp;Edit";

@@ -31,7 +31,14 @@ td {
     max-height: calc(2em * 4); /* Adjust the height based on the line height */
     margin-bottom: 1em;
 }
-  
+
+.table-truncate-multiline {
+    max-width: 150px; /* Adjust the width as needed */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .home-header {
     display: flex;
     justify-content: space-between;
