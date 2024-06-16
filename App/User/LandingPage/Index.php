@@ -42,4 +42,59 @@
         ?>
     </div>
 
+    <?php if(isset($order)) { ?>
+        <!-- Modal -->
+        <div class="modal fade" id="order-detail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="order-detail-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Status Pesanan</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <tr>
+                                <td>Nama Pemesan</td>
+                                <td>:</td>
+                                <td><?php echo $order['name'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>:</td>
+                                <td><?php echo $order['email'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Nomor Telepon</td>
+                                <td>:</td>
+                                <td><?php echo $order['phone_number'] ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>Status Pesanan</td>
+                                <td>:</td>
+                                <td><?php echo $order['status'] ?></td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p>Anda akan dihubungi tim kami dalam waktu dekat</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary px-4 py-2" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modalIsExist = document.getElementById('order-detail');
+
+            if(modalIsExist) {
+                var orderModal = new bootstrap.Modal(modalIsExist);
+                orderModal.show();
+            }
+        });
+    </script>
+
     <?php include $FOOTER_TEMPLATE_PATH ?>

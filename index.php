@@ -52,6 +52,27 @@ switch (true) {
 
         break;
 
+    case preg_match('#^/order/([a-zA-Z0-9]+)$#', $REQUEST_URI, $matches):
+        $id = $matches[1];
+
+        if($REQUEST_METHOD == "GET") {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRUSER . 'LandingPage/Logic/Catalogue.php';
+
+            if(isset($id)) {
+                require __DIR__ . $VIEWDIRUSER . 'LandingPage/Logic/Order.php';
+            }
+
+            $data = GetCatalogue($conn);
+
+            require __DIR__ . $VIEWDIRUSER . 'LandingPage/Index.php';
+
+            $conn->close();
+        }
+
+        break;
+
     case $REQUEST_URI == '/order':
 
         if ($REQUEST_METHOD === 'POST') {
