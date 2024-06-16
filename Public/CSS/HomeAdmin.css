@@ -14,7 +14,7 @@ td {
 
 .list-card-container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 
@@ -53,6 +53,10 @@ td {
 
 /* Large devices (desktops, 768px and up) */
 @media (min-width: 768px) { 
+    .list-card-container {
+        grid-template-columns: repeat(8, 1fr);
+        gap: 8px;
+    }
     .container .table-responsive .table {
         width: 150%;
     }
@@ -60,6 +64,10 @@ td {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+    .list-card-container {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 8px;
+    }
     .container .table-responsive .table {
         width: 100%;
     }

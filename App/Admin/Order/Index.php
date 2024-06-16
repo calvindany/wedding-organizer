@@ -9,8 +9,8 @@
         <div class="home-header mb-5">
             <h1>Daftar Pesanan</h1>
         </div>
-        <div style="background:white; padding: 20px; border-radius: 8px; box-shadow: 3px 3px 5px #888888;" >
-            <table class="table" >
+        <div class='table-responsive' style="background:white; padding: 20px; border-radius: 8px; box-shadow: 3px 3px 5px #888888;" >
+            <table class="table">
                 <thead>
                     <tr>
                     <th scope="col">No.</th>
