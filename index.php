@@ -9,6 +9,7 @@ $REQUEST_URI = $_SERVER['REQUEST_URI'];
 $REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 
 $VIEWDIRADMIN = '/app/admin/';
+$VIEWDIRUSER = '/app/user/';
 $BASEROUTE='/wedding-organizer';
 
 
@@ -19,6 +20,80 @@ if (strpos($REQUEST_URI, $BASEROUTE) === 0) {
 // echo $REQUEST_URI;
 
 switch (true) {
+    case $REQUEST_URI == '/':
+        if($REQUEST_METHOD == "GET") {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRUSER . 'LandingPage/Logic/Catalogue.php';
+
+            $data = GetCatalogue($conn);
+
+            require __DIR__ . $VIEWDIRUSER . 'LandingPage/Index.php';
+
+            $conn->close();
+        }
+
+        break;
+
+    case preg_match('#^/catalogue/detail/(\d+)$#', $REQUEST_URI, $matches):
+        $id = $matches[1];
+
+        if($REQUEST_METHOD === 'GET') {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRUSER . 'DetailCatalogue/Logic/Catalogue.php';
+
+            $data = GetCatalogueById($id, $conn);
+
+            require __DIR__ . $VIEWDIRUSER . 'DetailCatalogue/Index.php';
+
+            $conn->close();
+        }
+
+        break;
+
+    case preg_match('#^/order/([a-zA-Z0-9]+)$#', $REQUEST_URI, $matches):
+        $id = $matches[1];
+
+        if($REQUEST_METHOD == "GET") {
+            include "Helper/Connection.php";
+
+            require __DIR__ . $VIEWDIRUSER . 'LandingPage/Logic/Catalogue.php';
+
+            if(isset($id)) {
+                require __DIR__ . $VIEWDIRUSER . 'LandingPage/Logic/Order.php';
+            }
+
+            $data = GetCatalogue($conn);
+
+            require __DIR__ . $VIEWDIRUSER . 'LandingPage/Index.php';
+
+            $conn->close();
+        }
+
+        break;
+
+    case $REQUEST_URI == '/order':
+
+        if ($REQUEST_METHOD === 'POST') {
+            include "Helper/Connection.php";
+            include "Helper/FileHelper.php";
+            
+            require __DIR__ . $VIEWDIRUSER . 'DetailCatalogue/Logic/Order.php';
+        }
+
+        break;
+
+    case $REQUEST_URI == '/tentang-kami':
+
+        if ($REQUEST_METHOD === 'GET') {
+            include "Helper/Connection.php";
+            
+            require __DIR__ . $VIEWDIRUSER . 'TentangKami/Index.php';
+        }
+
+        break;
+
     case $REQUEST_URI == '/test':
 
         include "Helper/Connection.php";

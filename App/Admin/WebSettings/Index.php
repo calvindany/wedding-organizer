@@ -8,7 +8,7 @@
             <h1>Pengaturan Website</h1>
             <a href="<?php echo $BASE_URL . 'admin/pengaturan/add'?>" class="btn btn-outline-primary" >Tambah</a>
         </div>
-        <div style="background:white; padding: 20px; border-radius: 8px; box-shadow: 3px 3px 5px #888888;" >
+        <div class='table-responsive' style="background:white; padding: 20px; border-radius: 8px; box-shadow: 3px 3px 5px #888888;" >
             <table class="table" >
                 <thead>
                     <tr>
