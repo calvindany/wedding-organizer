@@ -1,0 +1,9 @@
+<?php
+    $TENTANG_KAMI_DESCRIPTION = 1;
+    $ISLE_CONCEPT_IMAGES = 2;
+    $MAPS_USAHA = 3;
+    $EMAIL_1 = 4;
+    $EMAIL_2 = 5;
+    $NOMOR_TELEPON = 6;
+    $FOOTER_DESCRIPTION = 7;
+    $ALAMAT = 8;

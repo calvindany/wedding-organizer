@@ -23,7 +23,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="setting-value" class="form-label">Nilai Pengaturan</label>
-                    <input type="text" class="form-control" id="setting-value" name="setting-value"  value="<?php if($isEdit)  { echo $data['setting_value']; }?>">
+                    <textarea class="form-control" id="setting-value" name="setting-value" rows="5" cols="50"><?php if($isEdit)  { echo $data['setting_value']; }?></textarea>
                     <div id="setting-name-help" class="form-text">Contoh: Jalan Raya Margonda No.8, 0809182919, calvindany@mail.com, dan lainnya</div>
                 </div>
                 <div class="mb-3">
