@@ -10,7 +10,7 @@
                 <h1>Wedding Organizer</h1>
             </div>
             <div>
-                <p>Etiam eu mattis massa. Pellentesque vel lectus vitae metus mollis viverra varius sed metus. In in rhoncus nisl. Vestibulum lacus urna, feugiat at congue vel, imperdiet non arcu. Suspendisse mauris lorem, fringilla nec ornare at, interdum in ante. Etiam sodales sollicitudin iaculis. Duis congue blandit suscipit. Aliquam efficitur ullamcorper dui, sed luctus nisl blandit sit amet. Donec ac diam neque.</p>
+                <p><?php echo $description['setting_value'] ?></p>
             </div>
         </div>
         <div class="space">
@@ -18,9 +18,10 @@
                 <h4>Isle Concept</h4>
             </div>
             <div class="isle-list">
-                <img src="<?php echo $BASE_URL . 'Public/Image/isle-1.jpg' ?>" alt="">
-                <img src="<?php echo $BASE_URL . 'Public/Image/isle-2.jpg' ?>" alt="">
-                <img src="<?php echo $BASE_URL . 'Public/Image/isle-3.jpg' ?>" alt="">
+                <?php $image_paths = explode("#", $isle_concept['setting_value']); ?>
+                <?php foreach($image_paths as $path) { ?>
+                    <img src="<?php echo $BASE_URL . $path ?>" alt="">
+                <?php } ?>
             </div>
         </div>
         <div class=" space">
@@ -28,7 +29,7 @@
                 <h4>Maps Location</h4>
             </div>
             <div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.192653571578!2d106.83061947576604!3d-6.369109262305471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed01b68548ad%3A0x89aea3afc2b2e77d!2sUniversitas%20Gunadarma%20Kampus%20D!5e0!3m2!1sid!2sid!4v1718515474311!5m2!1sid!2sid" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <?php echo $maps['setting_value'] ?>
             </div>
         </div>
         <div class=" space d-flex flex-column align-items-center">
@@ -38,15 +39,15 @@
             <div class="social-list">
                 <div>
                     <i class="bi bi-envelope-fill"></i>
-                    calvin@email.com
+                    <?php echo $contact[0]['setting_value'] ?>
                 </div>
                 <div>
                     <i class="bi bi-envelope-fill"></i>
-                    wo@sharkmaiil.com
+                    <?php echo $contact[1]['setting_value'] ?>
                 </div>
                 <div>
                     <i class="bi bi-telephone-fill"></i>
-                    +62 2019 1009 2910
+                    <?php echo $contact[2]['setting_value'] ?>
                 </div>
             </div>
         </div>

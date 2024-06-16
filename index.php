@@ -3,6 +3,7 @@
 include "Config/Constant.php";
 include "Config/FileUploadStatus.php";
 include "Config/OrderStatus.php";
+include "Config/PKSettings.php";
 include "Helper/Auth.php";
 
 $REQUEST_URI = $_SERVER['REQUEST_URI'];
@@ -88,8 +89,17 @@ switch (true) {
 
         if ($REQUEST_METHOD === 'GET') {
             include "Helper/Connection.php";
-            
+
+            require __DIR__ . $VIEWDIRUSER . 'TentangKami/Logic/Value.php';
+
+            $description = GetDescription($TENTANG_KAMI_DESCRIPTION, $conn);
+            $isle_concept = GetIsleConceptImages($ISLE_CONCEPT_IMAGES, $conn);
+            $maps = GetMapsUsaha($MAPS_USAHA, $conn);
+            $contact = GetContact([$EMAIL_1, $EMAIL_2, $NOMOR_TELEPON], $conn);
+
             require __DIR__ . $VIEWDIRUSER . 'TentangKami/Index.php';
+
+            $conn->close();
         }
 
         break;

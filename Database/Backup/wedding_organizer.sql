@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2024 at 12:41 PM
+-- Generation Time: Jun 16, 2024 at 01:54 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -75,11 +75,25 @@ CREATE TABLE `tb_orders` (
 CREATE TABLE `tb_settings` (
   `pk_tb_setting` int(4) NOT NULL,
   `setting_name` varchar(100) NOT NULL,
-  `setting_value` varchar(100) NOT NULL,
+  `setting_value` text NOT NULL,
   `description` text NOT NULL,
   `created_date` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_date` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_settings`
+--
+
+INSERT INTO `tb_settings` (`pk_tb_setting`, `setting_name`, `setting_value`, `description`, `created_date`, `updated_date`) VALUES
+(1, 'tentang_kami_description', 'Kami adalah aplikasi wedding organizer yang didedikasikan untuk membuat perencanaan pernikahan Anda menjadi lebih mudah dan menyenangkan. Dengan pengalaman bertahun-tahun di industri pernikahan, kami memahami bahwa setiap pasangan memiliki impian dan harapan yang unik untuk hari istimewa mereka. Aplikasi kami dirancang untuk memberikan solusi yang komprehensif, mulai dari memilih vendor terbaik hingga merancang dekorasi sesuai tema yang diinginkan. Kami menyediakan fitur-fitur canggih yang memungkinkan Anda untuk mengatur jadwal, membuat daftar tamu, mengelola anggaran, dan bahkan mendapatkan inspirasi dari koleksi ide pernikahan yang kami tawarkan. Dengan komitmen kami untuk kualitas dan kepuasan pelanggan, kami bertekad untuk menjadi mitra terpercaya dalam menyelenggarakan pernikahan impian Anda.<br><br>Kami percaya bahwa setiap detail penting dalam pernikahan Anda harus diperlakukan dengan cermat dan penuh perhatian. Melalui aplikasi kami, Anda dapat dengan mudah mengakses panduan praktis dan saran ahli untuk setiap tahap persiapan pernikahan, mulai dari memilih busana pengantin hingga merencanakan menu prasmanan yang lezat. Dengan fokus pada pengalaman pengguna yang intuitif dan interaktif, kami ingin memastikan bahwa setiap langkah perencanaan pernikahan Anda menjadi lancar dan tanpa stres. Aplikasi wedding organizer kami tidak hanya membantu Anda menghemat waktu, tetapi juga memberikan kemudahan untuk berbagi ide dan membangun kenangan yang indah bersama orang-orang terdekat. Bersama kami, wujudkan pernikahan impian Anda dengan percaya diri dan keyakinan.', 'value ini digunakan untuk halaman tentang kami bagian deskripsi usaha', '2024-06-16 17:58:45', '2024-06-16 18:06:12'),
+(2, 'isle_concept_images', 'Public/Image/isle-1.jpg#Public/Image/isle-2.jpg#Public/Image/isle-3.jpg', 'value ini merupakan path yang merujuk ke gambar concept isle untuk halaman tentang kami', '2024-06-16 18:16:07', '2024-06-16 18:45:43'),
+(3, 'maps_usaha', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.192653571578!2d106.83061947576604!3d-6.369109262305471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed01b68548ad%3A0x89aea3afc2b2e77d!2sUniversitas%20Gunadarma%20Kampus%20D!5e0!3m2!1sid!2sid!4v1718515474311!5m2!1sid!2sid\" height=\"600\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>\r\n', 'value ini merupakan iframe untuk display widget maps dari google', '2024-06-16 18:16:55', '2024-06-16 18:16:55'),
+(4, 'email_1', 'calvin@email.com', 'email kontak 1', '2024-06-16 18:17:12', '2024-06-16 18:17:18'),
+(5, 'email_2', 'wo@sharkmail.com', 'email kontak 2', '2024-06-16 18:18:22', '2024-06-16 18:47:05'),
+(6, 'nomor_telepon', '+62 2019 1009 2910', 'nomor telepon kontak', '2024-06-16 18:18:45', '2024-06-16 18:18:45'),
+(7, 'footer_description', 'Aplikasi wedding organizer yang didedikasikan untuk membuat perencanaan pernikahan Anda menjadi lebih mudah dan menyenangkan.', 'value ini ditampilkan pada footer section', '2024-06-16 18:48:13', '2024-06-16 18:48:13'),
+(8, 'footer_alamat', 'Pondok Cina, Margonda, Depok', 'value ini merupakan alamat untuk footer', '2024-06-16 18:53:20', '2024-06-16 18:53:20');
 
 -- --------------------------------------------------------
 
@@ -147,7 +161,7 @@ ALTER TABLE `tb_catalogues`
 -- AUTO_INCREMENT for table `tb_settings`
 --
 ALTER TABLE `tb_settings`
-  MODIFY `pk_tb_setting` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `pk_tb_setting` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_users`
