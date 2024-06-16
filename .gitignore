@@ -1,3 +1,8 @@
 Public/Uploads/*.jpeg
 Public/Uploads/*.png
 Public/Uploads/*.jpg
+
+
+!Public/Uploads/666be821ccc186.72858002.jpeg
+!Public/Uploads/666ebeb7147363.45678572.jpeg
+!Public/Uploads/666ec119620a04.48308657.jpeg
