@@ -86,6 +86,8 @@
         </div>
     <?php } ?>
 
+    <?php include $USER_FOOTER_TEMPLATE_PATH ?>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const modalIsExist = document.getElementById('order-detail');
