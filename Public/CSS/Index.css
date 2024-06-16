@@ -1,8 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+:root {
+    --main-color: #162719;
+    --secondary-color: #F2E8CF;
+}
+
 body {
+    /* background-color: #F8F7F9; */
     background-color: #F8F7F9;
     font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background-color: var(--main-color) !important;
+}
+
+.nav-link.active {
+    color: var(--secondary-color) !important;
 }
 
 .navigation {
@@ -12,11 +26,11 @@ body {
 }
 
 .custom-toggler {
-    background-color: #F8F7F9;
-    border-color: #F8F7F9;
+    background-color: var(--secondary-color);
+    border-color: var(--main-color);
 }
 
-.footer{
+footer {
     background-color: #091540;
     padding: 30px;
 }
