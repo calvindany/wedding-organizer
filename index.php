@@ -84,6 +84,16 @@ switch (true) {
 
         break;
 
+    case $REQUEST_URI == '/tentang-kami':
+
+        if ($REQUEST_METHOD === 'GET') {
+            include "Helper/Connection.php";
+            
+            require __DIR__ . $VIEWDIRUSER . 'TentangKami/Index.php';
+        }
+
+        break;
+
     case $REQUEST_URI == '/test':
 
         include "Helper/Connection.php";
